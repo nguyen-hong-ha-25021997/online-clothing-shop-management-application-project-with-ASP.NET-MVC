@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebThoiTrang.Models.KhachHang>
+
+@{
+    ViewBag.Title = "KhachHang";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+<h2>KhachHang</h2>
+<td colspan="6" style="text-align:right">
+
+    <div class="row-fluid sortable">
+        <div class="box span12">
+            <div class="box-header" data-original-title>
+                <h2><i class="halflings-icon edit"></i><span class="break"></span>Khách Hàng </h2>
+            </div>
+            <div class="box-content">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TenKhachHang)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TaiKhoan)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TenKhachHang)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TaiKhoan)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Thông tin khách hàng", "XemKhachHang", new { @makh = item.MaKhachHang }) |
+                                        @Html.ActionLink("Xóa", "XoaKhachHang", new { @makh = item.MaKhachHang })
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</td>
+

@@ -1,0 +1,42 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<WebThoiTrang.Models.SanPham>
+
+@{
+    ViewBag.Title = "KetQuaTimKiem";
+    Layout = "~/Views/Layout/_TimKiemLayout.cshtml";
+}
+
+<div class="well well-small">
+    <h3><p>Kết quả tìm kiếm</p> </h3>
+    <hr class="soften" />
+    <div class="row-fluid">
+        <div id="newProductCar" class="carousel slide">
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <ul class="thumbnails">
+
+
+                        @foreach (var item in Model)
+                        {
+
+
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <a class="zoomTool" href="@Url.Action("XemChiTietSanPham","Home", new { @MaSanPham = item.MaSanPham})"><span class="icon-search"></span> QUICK VIEW</a>
+
+                                    <a href="#" class="tag"></a>
+                                    <a href="product_details.html"><img src="@Url.Content("~/Images/"+item.HinhAnh)" /></a>
+                                    <p>@item.TenSanPham</p>
+                                    <p>@item.MaHienThi</p>
+                                    <p> <b>@item.DonGia VNĐ</b></p>
+
+                                </div>
+                            </li>
+                        }
+
+                </div>
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                @Html.PagedListPager(Model, page => Url.Action("KetQuaTimKiem", new { @page = page, @tukhoa = ViewBag.TuKhoa }))
+            </div>

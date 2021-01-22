@@ -1,0 +1,51 @@
+﻿@model WebThoiTrang.Models.nguoidung
+
+@{
+    ViewBag.Title = "ChiTietND";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+<h2>ChiTietND</h2>
+
+<div>
+    <h4>nguoidung</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupU.groupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupU.groupName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

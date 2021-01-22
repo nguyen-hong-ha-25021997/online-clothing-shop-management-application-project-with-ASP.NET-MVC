@@ -1,0 +1,105 @@
+﻿@model WebThoiTrang.Models.SanPham
+
+@{
+    ViewBag.Title = "HienThiChiTiet";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+<h2>HienThiChiTiet</h2>
+
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header" data-original-title>
+            <h2><i class="halflings-icon edit"></i><span class="break"></span>Chi Tiết Từng Sản Phẩm </h2>
+        </div>
+        <div class="box-content">
+            <fieldset>
+                <form class="form-horizontal">
+                    <div>
+                        <h4>SanPham</h4>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LoaiSanPham.TenLoaiSP)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.LoaiSanPham.TenLoaiSP)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.TenSanPham)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TenSanPham)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DonGia)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DonGia)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Size)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Size)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Kieu)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Kieu)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.TinhTrang)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TinhTrang)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.HinhAnh)
+                            </dt>
+
+                            <dd>
+                                <div id="anhbia"><img src="@Url.Content("~/Images/"+Model.HinhAnh)" width="50" height="50" /></div>
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MaHienThi)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MaHienThi)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.GhiChu)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.GhiChu)
+                            </dd>
+
+                        </dl>
+                    </div>
+
+                </form>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { @masp = Model.MaSanPham }) |
+    @Html.ActionLink("Trở lại", "HeThong")
+</p>

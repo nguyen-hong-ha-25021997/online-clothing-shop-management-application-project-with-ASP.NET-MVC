@@ -1,0 +1,98 @@
+﻿@using WebThoiTrang.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SanPham>
+
+@{
+    ViewBag.Title = "HeThong";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+<td colspan="6" style="text-align:right">
+
+    <div class="row-fluid sortable">
+        <div class="box span12">
+            <div class="box-header" data-original-title>
+                <h2><i class="halflings-icon edit"></i><span class="break"></span>Danh Sách Sản phẩm</h2>
+            </div>
+            <div class="box-content">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <p>
+                            @Html.ActionLink("Thêm mới sản phẩm", "ThemMoi")
+                        </p>
+                        <table class="table">
+
+
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().TenSanPham)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().DonGia)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().Kieu)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().TinhTrang)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().HinhAnh)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.First().GhiChu)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TenSanPham)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DonGia)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Kieu)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TinhTrang)
+                                    </td>
+                                    <td>
+                                        <div id="anhbia"><img src="@Url.Content("~/Images/"+item.HinhAnh)" width="50" height="50" /></div>
+                                        @*@Html.DisplayFor(modelItem => item.TinhTrang)*@
+                                    </td>
+                                    @*<td>
+                            @Html.DisplayFor(modelItem => item.HinhAnh)
+                        </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.GhiChu)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Chỉnh sửa", "ChinhSua", new { @masp = item.MaSanPham }) |
+                                        @Html.ActionLink("Thông tin chi tiết", "HienThiChiTiet", new { @masp = item.MaSanPham }) |
+                                        @Html.ActionLink("Xóa", "Xoa", new { @masp = item.MaSanPham })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </fieldset>
+
+                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+                    <div id="loaisp">
+                        @Html.PagedListPager(Model, page => Url.Action("HeThong", new { page = page }))
+                    </div>
+
+
+                    <style>
+                        #loaisp li {
+                            display: inline;
+                        }
+                    </style>
+                </form>
+            </div>
+        </div>
+    </div>

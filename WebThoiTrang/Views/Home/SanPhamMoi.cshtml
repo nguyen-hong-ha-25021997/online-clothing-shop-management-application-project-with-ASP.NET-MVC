@@ -1,0 +1,40 @@
+﻿@using WebThoiTrang.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SanPham>
+
+@Html.Action("dau", "Home")
+<!--
+Sanphammoi
+  -->
+<div class="well well-small">
+    <h3><p>Sản phẩm mới</p> </h3>
+    <hr class="soften" />
+    <div class="row-fluid">
+        <div id="newProductCar" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <ul class="thumbnails">
+                        @foreach (var item in Model)
+                        {
+                            <li class="sanpham">
+                                <div class="thumbnail">
+                                    <a class="zoomTool" href="@Url.Action("XemChiTietSanPham","Home", new { @MaSanPham = item.MaSanPham})"><span class="icon-search"></span> Xem ngay</a>
+                                    <a href="#" class="tag"></a>
+                                    <a href="@Url.Action("XemChiTietSanPham","Home", new { @MaSanPham = item.MaSanPham})"><img src="@Url.Content("~/Images/"+item.HinhAnh)" /></a>
+                                    <p style="margin-top:8px">@item.MaHienThi</p>
+                                    <p> <b>@item.DonGia VNĐ</b></p>
+
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("SanPhamMoi", new { page = page }))
+
+        </div>
+    </div>
+    @Html.Action("cuoi", "Home")
+    @*Tạo link liên kết các trang*@
+

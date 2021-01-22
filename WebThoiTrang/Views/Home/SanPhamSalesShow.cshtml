@@ -1,0 +1,25 @@
+﻿@using WebThoiTrang.Models;
+@model List<SanPham>
+
+<div class="carousel-inner">
+    <div class="item active">
+        <ul class="thumbnails">
+            @foreach (var item in Model)
+            {
+                <li class="span3">
+                    <div class="thumbnail">
+                        <a class="zoomTool" href="@Url.Action("XemChiTietSanPham", "Home", new { @MaSanPham = item.MaSanPham})" title="add to cart"><span class="icon-search"></span> Xem ngay</a>
+
+                        <a href="#" class="tag"></a>
+                        <a href="@Url.Action("XemChiTietSanPham","Home", new { @MaSanPham = item.MaSanPham})"><img src="@Url.Content("~/Images/"+item.HinhAnh)" /></a>
+                        <p style="margin-top:7px">@item.MaHienThi</p>
+                        <p> <b>@item.DonGia VNĐ</b></p>
+
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+

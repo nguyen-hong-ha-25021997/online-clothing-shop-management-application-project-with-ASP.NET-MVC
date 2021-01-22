@@ -1,0 +1,40 @@
+﻿@model WebThoiTrang.Models.HoaDon
+
+@using (Html.BeginForm())
+{
+
+ <div class="chinhfont">
+    <img src="~/Images/IMG_0135.PNG" />
+ </div>
+ <div class="thongtinkhachhang">
+     <h2> Thông tin giao hàng</h2>
+     <div class="control-group">
+
+         <p>Ðịa chỉ</p>
+         @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "span2" } })
+         @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+     </div>
+     <div class="control-group">
+
+         <p>Số điện thoại</p>
+         @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "span2" } })
+         @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+     </div>
+     <p>Số tiền thanh toán : <b>@Html.Action("TongTien", "giohang") VNĐ</b></p>
+     <h2> Thông tin tài khoản</h2>
+     <div class="control-group">
+         <input type="text" name="txtTaiKhoan" class="span2" id="inputEmail" placeholder="Username">
+     </div>
+     <div id="thongtintratien">
+         <div class="control-group">
+             <input type="password" name="txtMatKhau" class="span2" id="inputPassword" placeholder="Password">
+         </div>
+         <div class="control-group">
+             @ViewBag.ThongBao
+             <input type="submit" value="Gửi " />
+             @Html.ActionLink("Sign in", "DangKi", "KhachHang")
+         </div>
+     </div>
+ </div>
+
+}

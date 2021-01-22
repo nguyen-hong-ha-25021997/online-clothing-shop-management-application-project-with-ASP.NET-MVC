@@ -1,0 +1,36 @@
+﻿@using WebThoiTrang.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<SanPham>
+
+@Html.Action("dau", "Home")
+<div class="well well-small">
+    <h3><p>Các sản phẩm</p> </h3>
+    <hr class="soften" />
+    <div class="row-fluid">
+        <div id="newProductCar" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <ul class="thumbnails">
+                        @foreach (var item in Model)
+                        {
+                            <li class="span3">
+                                <div class="thumbnail">
+                                    <a class="zoomTool" href="@Url.Action("XemChiTietSanPham","Home", new { @MaSanPham = item.MaSanPham})" title="add to cart"><span class="icon-search"></span> Xem ngay</a>
+                                    <a href="#" class="tag"></a>
+                                    <a href="#"></a>
+                                    <a href="@Url.Action("XemChiTietSanPham", "Home", new { @MaSanPham  = item.MaSanPham})"><img src="@Url.Content("~/Images/"+item.HinhAnh)" /></a>
+                                    <p>@item.MaHienThi</p>
+                                    <p> <b>@item.DonGia</b></p>
+
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+            @Html.PagedListPager(Model, page => Url.Action("CacSanPham", new { @type = WebThoiTrang.Controllers.HomeController.loaiSP, @page = page }))
+        </div>
+    </div>
+</div>
+@Html.Action("cuoi", "Home")

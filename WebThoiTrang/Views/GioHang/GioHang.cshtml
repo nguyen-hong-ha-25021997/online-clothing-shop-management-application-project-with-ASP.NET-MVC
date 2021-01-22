@@ -1,0 +1,44 @@
+﻿
+@using WebThoiTrang.Models
+@model List<GioHang>
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Layout/_GioHangLayout.cshtml";
+}
+
+<div class="chinhfont">
+    <table border="1" width="1000">
+        <tr>
+            <td>Mã sản phẩm</td>
+            <td>Tên sản phẩm</td>
+            <td>Hình ảnh</td>
+            <td>Đơn giá</td>
+            <td>Số lượng</td>
+            <td>Thành tiền</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.maSP</td>
+                <td>@item.tenSP</td>
+                <td><img src="@Url.Content("~/Images/"+@item.hinhanh)" width="50" height="50"></td>
+                <td> @String.Format("{0:0,0}", @item.dongia.ToString()) VNĐ</td>
+                <td> @item.soluong</td>
+                <td>@String.Format("{0:0,0}", @item.thanhtien.ToString())</td>
+            </tr>
+        }
+        <tr></tr>
+    </table>
+</div>
+<div class="chinhfont">
+    <br /><br />
+    <td colspan="6" style="text-align:right">
+        @Html.ActionLink("Chỉnh sửa giỏ hàng", "SuaGioHang", "GioHang")
+    </td>
+    <td colspan="6" style="text-align:right">
+        @using (Html.BeginForm("DatHang", "GioHang"))
+        {
+            <input type="submit" value="Thanh toán" />
+        }
+    </td>
+</div>

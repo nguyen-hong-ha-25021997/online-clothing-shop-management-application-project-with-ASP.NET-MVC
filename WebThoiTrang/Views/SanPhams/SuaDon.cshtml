@@ -1,0 +1,100 @@
+﻿@model WebThoiTrang.Models.HoaDon
+@{
+    ViewBag.Title = "SuaDon";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+<h2>SuaDon</h2>
+<td colspan="6" style="text-align:right">
+    @using (Html.BeginForm("SuaDon", "QuanLySanPham"))
+    {
+        <div class="row-fluid sortable">
+            <div class="box span12">
+                <div class="box-header" data-original-title>
+                    <h2><i class="halflings-icon edit"></i><span class="break"></span>Đơn Hàng </h2>
+                </div>
+                <div class="box-content">
+                    <form class="form-horizontal">
+                        <fieldset>
+
+
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.MaHoaDon)
+                                <div class="chinhfont">
+
+                                    <div class="control-group hidden-phone">
+                                        @Html.LabelFor(model => model.MaKhachHang, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="ccontrols">
+                                            @Html.TextBoxFor(model => model.MaKhachHang)
+                                            @*@Html.ValidationMessageFor(model => model.NgayMua, "", new { @class = "text-danger" })*@
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group hidden-phone">
+                                        @Html.LabelFor(model => model.NgayMua, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="ccontrols">
+                                            @Html.TextBoxFor(model => model.NgayMua)
+                                            @*@Html.ValidationMessageFor(model => model.NgayMua, "", new { @class = "text-danger" })*@
+                                        </div>
+                                    </div>
+                                    <div class="control-group hidden-phone">
+                                        @Html.LabelFor(model => model.NgayGiao, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="ccontrols">
+                                            @Html.TextBoxFor(model => model.NgayGiao)
+                                            @*@Html.ValidationMessageFor(model => model.NgayGiao, "", new { @class = "text-danger" })*@
+                                        </div>
+                                    </div>
+
+
+                                    <div class="control-group hidden-phone">
+                                        @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="ccontrols">
+                                            @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group hidden-phone">
+                                        @Html.LabelFor(model => model.SDT, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="ccontrols">
+                                            @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group hidden-phone">
+                                        @Html.LabelFor(model => model.DaThanhToan, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="ccontrols">
+                                            @Html.EditorFor(model => model.DaThanhToan, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.DaThanhToan, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Save" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+    <div>
+        @Html.ActionLink("Trở lại", "HoaDon", "QuanLySanPham")
+    </div>
+
+
+
+
+

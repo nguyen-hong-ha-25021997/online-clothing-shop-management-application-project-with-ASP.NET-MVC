@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="443cc02a25bc4132b91f58195389598c" Name="Diagram1">
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.C__EFMigrationsHistory" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.AppRoleClaim" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.AppUserClaim" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.AppUserLogin" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.AppUserRole" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.AppUserToken" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.Category" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.Order" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.OrderDetail" Width="1.5" PointX="7.5" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.Product" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.Role" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.sysdiagram" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_Website_ban_quan_aoModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="Data_Website_ban_quan_aoModel.FK_Product_Category_Category_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_Website_ban_quan_aoModel.FK_Order_Users_User_id" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_Website_ban_quan_aoModel.FK_OrderDetail_Order_Order_Id1" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_Website_ban_quan_aoModel.FK_OrderDetail_Product_Product_Id1" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_Website_ban_quan_aoModel.FK_Users_Roles_RoleId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

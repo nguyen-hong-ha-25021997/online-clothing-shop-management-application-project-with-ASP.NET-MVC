@@ -1,0 +1,66 @@
+﻿@model WebThoiTrang.Models.ChiTietHoaDon
+@{
+    ViewBag.Title = "HienThiHoDon";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+<h2>HienThiHoDon</h2>
+
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header" data-original-title>
+            <h2><i class="halflings-icon edit"></i><span class="break"></span>Chi Tiết Từng Hóa Đơn</h2>
+        </div>
+        <div class="box-content">
+            <fieldset>
+                <form class="form-horizontal">
+                    <div>
+                        <h4>ChiTietHoaDon</h4>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MaHoaDon)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MaHoaDon)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MaSanPham)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MaSanPham)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DonGia)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DonGia)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.SoLuong)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.SoLuong)
+                            </dd>
+
+
+                    </div>
+
+                </form>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "SuaDon", new { @ma = Model.MaHoaDon }) |
+    @Html.ActionLink("Trở lại", "HeThong")
+</p>
+
+

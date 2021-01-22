@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+
+    <link href="~/Content/bootstrapa.css" rel="stylesheet" />
+    <link href="~/Content/userCss.css" rel="stylesheet" />
+    <link href="~/Content/fontmin.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="~/Content/font.css" rel="stylesheet" />
+    <link href="~/favicon.ico" rel="shortcut icon" />
+    <link href="~/fonts/Use.css" rel="stylesheet" />
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="topNav">
+            <div class="container">
+                <div class="alignR">
+                    <div class="pull-left socialNw">
+                        <a href="#"><span></span></a>
+                        <a href="#"><span></span></a>
+                        <a href="#"><span></span></a>
+                        <a href="#"><span></span></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    MenuTrangChu
+     -->
+    <div class="container">
+        <div id="gototop"> </div>
+        <header id="header" style="padding-top:44px">
+            <div class="row">
+                <div class="span4">
+                    <h1>
+                        <a class="logo" href="index.html">
+                            <span>Twitter Bootstrap ecommerce template</span>
+                            <img src="~/Images/images-logo-4Teen.png" />
+                        </a>
+                    </h1>
+                </div>
+            </div>
+        </header>
+    </div>
+    <!--
+    Menu Trang Chu
+    -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class=""><a class="" href="@Url.Action("TrangChu","Home")">Trang chủ</a></li>
+                        <li class="dropdown">
+                            <a href="@Url.Action("SanPhamMoi","Home")">Sản phẩm</a>
+                            <ul class="dropdown-content">
+                                <li><a href="@Url.Action("CacSanPham", "Home", new { @type = "Vay"})">Váy</a></li>
+                                <li><a href="@Url.Action("CacSanPham", "Home", new { @type = "Quan"})">Quần</a></li>
+                                <li><a href="@Url.Action("CacSanPham", "Home", new { @type = "Ao"})">Áo</a></li>
+                            </ul>
+                        </li>
+                        <li class=""><a href="@Url.Action("AdLogin","AdLogIn")">Hệ thống</a></li>
+                        <li class=""><a href="@Url.Action("DangKi","KhachHang")">Đăng kí</a></li>
+                        <li class="">
+                            <a style="float:left" href="@Url.Action("GioHang","GioHang")">Giỏ hàng</a>
+                            <span class="btn btn-mini" style="float:right"><a href="@Url.Action("GioHang","GioHang")">[ @Html.Action("TongSL", "giohang") ] </a></span>
+                        </li>
+                        <li class="" style="padding:8px">
+                            @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
+                            {
+                                @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "search-query span2", @placeholder = "Search" })
+
+                                <button type="submit"><img src="~/Images/1473536510_Search.png" /></button>
+                            }
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+    Body Section
+        DanhMuc sản phẩm
+    -->
+    </div>
+    <div>  @RenderBody()   </div>
+
+</body>
+</html>
